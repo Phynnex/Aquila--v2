@@ -64,7 +64,7 @@ const Login = () => {
                 Forgot Password?
               </Link>
 
-              <div className="bg-blue text-[#fff] rounded mt-4 pt-2 pb-2 pl-4 text-center">
+              <div className="bg-blue text-white rounded mt-4 pt-2 pb-2 pl-4 text-center">
                 <button type="submit" disabled={!email || !password || isLoading}>
                   {isLoading ? (
                     <i className="fa-solid fa-spinner fa-spin-pulse"></i>
@@ -84,7 +84,7 @@ const Login = () => {
         </div>
       </div>
       <div className="w-2/5 ">
-        <img src={Login_Background} alt="login img" className="h-screen" />
+        <img src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="login img" className="h-screen w-full" />
       </div>
     </div>
   );

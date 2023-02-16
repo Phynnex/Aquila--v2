@@ -6,11 +6,11 @@ const Hero = () => {
     <div>
         
       <div
-        className="w-full h-screen flex justify-center items-center mb-10 "
-        style={{ backgroundImage: `url(${Hero_Background})` }}
+        className="w-scree h-screen flex justify-center items-center mb-10 bg-no-repeat bg-cover"
+        style={{ backgroundImage: `url(${'https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'})` }}
       >
         <div className="w-1/2 flex flex-col justify-center  items-center">
-          <p className="text-white font-bold text-3xl text-center">
+          <p className="text-white font-bold text-3xl text-center ">
             Mobile Application Security for Modern Application development
           </p>
           <p className="w-2/3 text-white text-center mt-6">

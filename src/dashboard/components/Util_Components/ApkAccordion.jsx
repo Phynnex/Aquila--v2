@@ -51,7 +51,7 @@ function Icon({ id, open }) {
   );
 }
  
-export default function IosAccordion() {
+export default function ApkAccordion() {
   const [open, setOpen] = useState(0);
  
   const handleOpen = (value) => {
@@ -62,7 +62,7 @@ export default function IosAccordion() {
     <div className=" shadow-lg shadow-secondary-500/500  w-[95%]  p-4 h-auto mr-14 mt-4 rounded-md bg-neutral-50 border border-x-grey border-y-grey">
       <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(1)}>
-          Marcho Analysis
+          Certificate Analysis
         </AccordionHeader>
         <AccordionBody>
         <TableContainer>
