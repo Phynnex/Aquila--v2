@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineCloudUpload, AiFillFileText } from "react-icons/ai";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "Api/axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,10 +10,12 @@ import Navbar from "dashboard/components/nav/Navbar";
 
 const UploadScan = () => {
   const [file, setFile] = useState("");
-  const { projectName } = useStateContext();
+  const { projectName, scanFile, setScanFile,  } = useStateContext();
   const [uploadedFile, setUploadedFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [scanFile, setScanFile] = useState("");
+  // const [scanFile, setScanFile] = useState("");
+
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
      setFile(e.target.files[0])
@@ -59,15 +61,22 @@ const UploadScan = () => {
       });
       toast.success("Scan successful..");
       setScanFile(res.data);
-      console.log(scanFile);
       setIsLoading(false);
       
     } catch (error) {
       setIsLoading(false);
       toast.error("Error");
     }
+  
   };
 
+  console.log(scanFile, 'scanfile')
+  if (scanFile?.file_name.includes("apk")) {
+    navigate ("/dashboard/report-apk")
+  }
+  if (scanFile?.file_name.includes("ipa") || scanFile?.file_name.includes(".ios")) {
+    navigate ("/dashboard/report-ios")
+  }
   return (
     <>
       <Navbar />

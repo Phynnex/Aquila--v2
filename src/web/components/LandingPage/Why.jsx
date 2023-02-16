@@ -6,8 +6,8 @@ const Why = () => {
     <div>
         
       <div
-        className="w-full h-[90vh] flex justify-center items-center mb-10 "
-        style={{ backgroundImage: `url(${Hero_Background})` }}
+        className="w-full h-[90vh] flex justify-center items-center mb-10 bg-no-repeat bg-cover"
+        style={{ backgroundImage: `url(${'https://images.unsplash.com/photo-1510906594845-bc082582c8cc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=844&q=80'})` }}
       >
         <div className="w-1/2 flex flex-col justify-center  items-center">
           <p className="text-white font-bold text-6xl text-center">

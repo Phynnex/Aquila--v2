@@ -24,7 +24,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="secondary"
-        className="p-1 font-semibold text-base"
+        className="p-1 font-semibold text-base hover:bg-secondary hover:text-white rounded-md hover:px-4 hover:py-2"
       >
         <Link to="/" className="flex items-center">
           How It Works
@@ -34,7 +34,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="secondary"
-        className="p-1 font-semibold text-base"
+        className="p-1 font-semibold text-base hover:bg-secondary hover:text-white rounded-md hover:px-4 hover:py-2"
       >
         <Link to="/pricing" className="flex items-center">
          Pricing
@@ -44,7 +44,7 @@ export default function Example() {
         as="li"
         variant="small"
         color="secondary"
-        className="p-1 font-semibold text-base"
+        className="p-1 font-semibold text-base hover:bg-secondary hover:text-white rounded-md hover:px-4 hover:py-2"
       >
       
         <Link to="/contact" className="flex items-center">
@@ -56,7 +56,7 @@ export default function Example() {
   );
  
   return (
-    <Navbar className="fixed mx-auto w-screen border-none rounded-none px-4 lg:px-8 lg:py-4 opacity-100 z-10 bg-white ">
+    <Navbar className="fixed mx-auto w-full border-none rounded-none px-4 lg:px-8 lg:py-4 opacity-100 z-10 bg-white ">
       <div className="container mx-auto flex items-center justify-between text-secondary">
         <Typography
           as="a"
@@ -70,7 +70,7 @@ export default function Example() {
         <div className="w-1/2 flex justify-around">
         <div className="hidden lg:block">{navList}</div>
         <Link to="/login">
-        <button className="hidden lg:inline-block border-2 border-secondary px-12 text-secondary rounded-md py-2">
+        <button className="hidden lg:inline-block border-2 border-secondary px-12 text-secondary rounded-md py-2 hover:bg-secondary hover:text-white ">
           <span>Login</span>
         </button>
         </Link>
@@ -114,13 +114,17 @@ export default function Example() {
         </IconButton>
       </div>
       <MobileNav open={openNav}>
-        <div className="container mx-auto">
+        <div className="container  flex flex-col justify-center text-secondary">
+          <div className="flex justify-center">
           {navList}
+          </div>
+          <div className="flex justify-center">
           <Link to="/login">
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
-            <span>Login</span>
-          </Button>
+          <button  fullWidth className="mb-2 text-white bg-secondary py-2 px-8 rounded-md">
+            Login
+          </button>
           </Link>
+          </div>
         </div>
       </MobileNav>
     </Navbar>

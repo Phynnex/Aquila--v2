@@ -23,7 +23,7 @@ const UploadIos = () => {
       {reports?.data?.data?.ios && (
         <div className="p-5 m-5">
           <p>File Name :{reports?.data?.data?.ios?.FILE_NAME} </p>
-          <p>Hash : {reports?.data?.data?.ios?.SIZE}</p>
+          <p>Size : {reports?.data?.data?.ios?.SIZE}</p>
           <p>Sha5 : {reports?.data?.data?.ios?.MD5}</p>
           <p>App Name : {reports?.data?.data?.ios?.APP_NAME}</p>
           <Link to="/dashboard/report-ios">
