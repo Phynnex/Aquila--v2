@@ -5,12 +5,12 @@ import { NavLink } from "react-router-dom";
 const Sidebar = () => {
     const activeLink = 'bg-secondary text-white mt-5 px-4 rounded w-full h-10 flex justify-start items-center text-white   bg-neutral-50'
 
-    const normalLink = 'text-primary  px-4  mt-5 w-full h-10 flex justify-start items-center text-white  rounded hover:bg-secondary hover:text-white'
+    const normalLink = 'text-primary  px-4  mt-5 w-full h-10 flex justify-start items-center rounded hover:bg-secondary hover:text-white'
 
   return (
 
     <section>
-      <div className="text-white">
+      <div className="">
           {
                SidebarData.map((item, index)=>{
                 return(
