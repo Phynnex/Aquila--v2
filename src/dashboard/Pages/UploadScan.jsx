@@ -51,8 +51,7 @@ const UploadScan = () => {
   const handleScan = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    setUploadedFile(null)
-
+    setUploadedFile(null);
 
     try {
       const res = await axios.post("api/scan/", {
@@ -62,21 +61,22 @@ const UploadScan = () => {
       toast.success("Scan successful..");
       setScanFile(res.data);
       setIsLoading(false);
-      
+
+      if (uploadedFile.scan_type === "apk") {
+        navigate("/dashboard/report-apk");
+        return;
+      }
+      if (uploadedFile.scan_type === "ipa") {
+        navigate("/dashboard/report-ios");
+      }
     } catch (error) {
       setIsLoading(false);
       toast.error("Error");
     }
-  
   };
 
   console.log(scanFile, 'scanfile')
-  if (scanFile?.file_name.includes("apk")) {
-    navigate ("/dashboard/report-apk")
-  }
-  if (scanFile?.file_name.includes("ipa") || scanFile?.file_name.includes(".ios")) {
-    navigate ("/dashboard/report-ios")
-  }
+  
   return (
     <>
       <Navbar />
