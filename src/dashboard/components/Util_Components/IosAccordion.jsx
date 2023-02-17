@@ -83,14 +83,14 @@ export default function IosAccordion() {
                     {
                       scanFile?.binary_analysis[
                         "Binary makes use of Logging function"
-                      ].masvs
+                      ].masvs || "N/A"
                     }
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     {
                       scanFile?.binary_analysis[
                         "Binary makes use of Logging function"
-                      ].cvss
+                      ].cvss || "N/A"
                     }
                   </StyledTableCell>
                   <StyledTableCell align="center">
@@ -115,7 +115,7 @@ export default function IosAccordion() {
                       {
                         scanFile?.binary_analysis[
                           "Binary makes use of Logging function"
-                        ].severity
+                        ].severity || "N/A"
                       }
                     </button>
                   </StyledTableCell>
@@ -129,14 +129,14 @@ export default function IosAccordion() {
                     {
                       scanFile?.binary_analysis[
                         "Binary makes use of insecure API(s)"
-                      ].masvs
+                      ].masvs || "N/A"
                     }
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     {
                       scanFile?.binary_analysis[
                         "Binary makes use of insecure API(s)"
-                      ].cvss
+                      ].cvss || "N/A"
                     }
                   </StyledTableCell>
                   <StyledTableCell align="center">
@@ -161,7 +161,7 @@ export default function IosAccordion() {
                       {
                         scanFile?.binary_analysis[
                           "Binary makes use of insecure API(s)"
-                        ].severity
+                        ].severity || "N/A"
                       }
                     </button>
                   </StyledTableCell>
@@ -175,14 +175,14 @@ export default function IosAccordion() {
                   {
                       scanFile?.binary_analysis[
                         "Binary makes use of malloc function"
-                      ].masvs
+                      ].masvs || "N/A"
                     }
                   </StyledTableCell>
                   <StyledTableCell align="center">
                   {
                       scanFile?.binary_analysis[
                         "Binary makes use of malloc function"
-                      ].cvss
+                      ].cvss || "N/A"
                     }
                   </StyledTableCell>
                   <StyledTableCell align="center">
@@ -207,7 +207,7 @@ export default function IosAccordion() {
                       {
                         scanFile?.binary_analysis[
                           "Binary makes use of malloc function"
-                        ].severity
+                        ].severity || "N/A"
                       }
                     </button>
                   </StyledTableCell>

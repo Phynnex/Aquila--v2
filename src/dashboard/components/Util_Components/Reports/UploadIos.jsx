@@ -26,9 +26,9 @@ const UploadIos = () => {
           <p>Size : {reports?.data?.data?.ios?.SIZE}</p>
           <p>Sha5 : {reports?.data?.data?.ios?.MD5}</p>
           <p>App Name : {reports?.data?.data?.ios?.APP_NAME}</p>
-          <Link to="/dashboard/report-ios">
+        
           <button className="bg-secondary p-2 text-white">View Full Report</button>
-          </Link>
+          
         </div>
       )}
     </div>
