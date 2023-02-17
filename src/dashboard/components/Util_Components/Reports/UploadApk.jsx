@@ -1,7 +1,7 @@
 import React from "react";
 import { BsCloudUpload } from "react-icons/bs";
 import { useStateContext } from "Context/ContextProvider";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const UploadApk = () => {
   const { reports } = useStateContext();

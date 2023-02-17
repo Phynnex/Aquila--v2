@@ -379,7 +379,7 @@ export default function ApkAccordion() {
               </TableHead>
               <TableBody>
                 {scanFile.binary_analysis.map((item, key) => {
-                  const { fortify, nx, rpath, runpath, symbol } = item;
+                  const { rpath } = item;
 
                   return (
                     <StyledTableRow key={key}>
@@ -431,7 +431,7 @@ export default function ApkAccordion() {
               </TableHead>
               <TableBody>
                 {scanFile.binary_analysis.map((item, key) => {
-                  const { fortify, nx, rpath, runpath, symbol } = item;
+                  const { runpath } = item;
 
                   return (
                     <StyledTableRow key={key}>

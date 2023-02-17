@@ -1,6 +1,3 @@
-import IosAccordion from "dashboard/components/Util_Components/IosAccordion";
-import axios from '../../../Api/axios';
-import { useQuery } from "@tanstack/react-query";
 import { useStateContext } from "Context/ContextProvider";
 import ApkAccordion from './../../components/Util_Components/ApkAccordion';
 
