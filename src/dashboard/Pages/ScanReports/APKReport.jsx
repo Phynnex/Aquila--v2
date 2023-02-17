@@ -1,6 +1,3 @@
-import IosAccordion from "dashboard/components/Util_Components/IosAccordion";
-import axios from '../../../Api/axios';
-import { useQuery } from "@tanstack/react-query";
 import { useStateContext } from "Context/ContextProvider";
 import ApkAccordion from './../../components/Util_Components/ApkAccordion';
 
@@ -30,13 +27,13 @@ const APKReport = () => {
         <div className="flex justify-between pr-24">
           <div>
             <p className="text-secondary font-semibold">Application Name</p>
-            <p className="text-secondary">{scanFile.app_name}</p>
+            <p className="text-secondary">{scanFile?.app_name}</p>
           </div>
           <div>
             <p className="text-secondary font-semibold">
               Package Version
             </p>
-            <p className="text-secondary">{scanFile.version_name}</p>
+            <p className="text-secondary">{scanFile?.version_name}</p>
           </div>
           <div>
             <p className="text-secondary font-semibold">Medium severity test</p>

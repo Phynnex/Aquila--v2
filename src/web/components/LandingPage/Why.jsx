@@ -1,5 +1,5 @@
 import React from "react";
-import Hero_Background from "../../../assets/hero.png";
+
 
 const Why = () => {
   return (

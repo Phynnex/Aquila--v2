@@ -1,7 +1,7 @@
 import React from "react";
 import { BsCloudUpload } from "react-icons/bs";
 import { useStateContext } from "Context/ContextProvider";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const UploadApk = () => {
   const { reports } = useStateContext();
@@ -25,9 +25,9 @@ const UploadApk = () => {
           <p>Hash : {reports?.data?.data?.apk?.SIZE}</p>
           <p>Sha5 : {reports?.data?.data?.apk?.MD5}</p>
           <p>App Name : {reports?.data?.data?.apk?.APP_NAME}</p>
-          <Link to="/dashboard/report-apk">
+          
           <button className="bg-secondary p-2 text-white">View Full Report</button>
-          </Link>
+          
         </div>
       )}
     </div>

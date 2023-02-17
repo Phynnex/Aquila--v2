@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "assets/Logo.png";
-import Login_Background from "assets/Login_bg.png";
+
 import { useLogin } from "Hooks/useLogin";
 
 const Login = () => {
