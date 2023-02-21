@@ -13,7 +13,8 @@ module.exports = withMT({
             'green': 'rgb(94 234 212)',
             'white': '#ffffff',
             'grey': '#EBEFF6',
-            'red': 'rgb(248 113 113)'
+            'red': 'rgb(248 113 113)',
+            'yellow': '#FFBF00',
 
         },
        

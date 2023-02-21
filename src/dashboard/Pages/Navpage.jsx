@@ -10,6 +10,7 @@ import HomePage from './HomePage';
 import IOSReport from './ScanReports/IOSReport';
 import APKReport from './ScanReports/APKReport';
 
+
 const NavPage = () => {
   return (
     
@@ -24,6 +25,7 @@ const NavPage = () => {
         <Route path="/home" element={<HomePage />} />
         <Route path="/report-ios" element={<IOSReport />} />
         <Route path="/report-apk" element={<APKReport />} />
+        
         </Routes>
       </section>
     

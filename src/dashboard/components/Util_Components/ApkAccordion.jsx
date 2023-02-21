@@ -17,8 +17,8 @@ import { useStateContext } from "Context/ContextProvider";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    color: "#000000",
-    fontSize: 20,
+    color: "#757575",
+    fontSize: 16,
     fontWeight: "bold",
   },
   [`&.${tableCellClasses.body}`]: {
@@ -59,159 +59,154 @@ export default function ApkAccordion() {
     setOpen(open === value ? 0 : value);
   };
 
- 
   return (
     <div className=" shadow-lg shadow-secondary-500/500  w-[95%]  p-4 h-auto mr-14 mt-4 rounded-md bg-neutral-50 border border-x-grey border-y-grey">
       <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(1)}>
           Certificate Analysis
         </AccordionHeader>
-        <AccordionBody>
-          <TableContainer>
-            <Table aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>MASVS</StyledTableCell>
-                  <StyledTableCell align="center">CVSS</StyledTableCell>
-                  <StyledTableCell align="center">SEVERITY</StyledTableCell>
-                  {/* <StyledTableCell align="center">STATUS</StyledTableCell> */}
-                  <StyledTableCell align="center">VIEW DETAILS</StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <StyledTableRow>
-                  <StyledTableCell component="th" scope="row">
-                    
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {/* {binary_analysis["Binary makes use of Logging function"]
-                    .cvss || "N/A"} */}
-                    Binary makes use of Logging function
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    <Button>High</Button>
-                    {/* <Button
-                    w="120px"
-                    br="5px"
-                    color="#000"
-                    fs="16px"
-                    p="10px"
-                    style={{
-                      backgroundColor:
-                        (binary_analysis["Binary makes use of Logging function"]
-                          .severity === "info" &&
-                          "#3DDB84") ||
-                        (binary_analysis["Binary makes use of Logging function"]
-                          .severity === "high" &&
-                          "#FE1102") ||
-                        (binary_analysis["Binary makes use of Logging function"]
-                          .severity === "unknow" &&
-                          "#FAB626"),
-                    }}
-                  >
-                    {
-                      binary_analysis["Binary makes use of Logging function"]
-                        .severity
-                    }
-                  </Button> */}
-                  </StyledTableCell>
 
-                  <StyledTableCell align="center">
-                    <Link to="">View Details</Link>
-                  </StyledTableCell>
-                </StyledTableRow>
-                <StyledTableRow>
-                  <StyledTableCell component="th" scope="row">
-                    {/* {binary_analysis["Binary makes use of insecure API(s)"].masvs} */}
-                    Binary makes use of insecure API(s)
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {/* {binary_analysis["Binary makes use of insecure API(s)"].cvss} */}
-                    Binary makes use of insecure API(s)
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    <Button>Low</Button>
-                    {/* <Button
-                    w="120px"
-                    br="5px"
-                    color="#000"
-                    fs="16px"
-                    p="10px"
-                    style={{
-                      backgroundColor:
-                        (binary_analysis["Binary makes use of insecure API(s)"]
-                          .severity === "info" &&
-                          "#3DDB84") ||
-                        (binary_analysis["Binary makes use of insecure API(s)"]
-                          .severity === "high" &&
-                          "#FE1102") ||
-                        (binary_analysis["Binary makes use of insecure API(s)"]
-                          .severity === "unknow" &&
-                          "#FAB626"),
-                    }}
-                  >
-                    {
-                      binary_analysis["Binary makes use of insecure API(s)"]
-                        .severity
-                    }
-                  </Button> */}
-                  </StyledTableCell>
+        {scanFile?.certificate_analysis ? (
+          <AccordionBody>
+            <TableContainer>
+              <Table aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <StyledTableCell>DESCRIPTION</StyledTableCell>
+                    <StyledTableCell align="center">SEVERITY</StyledTableCell>
+                    <StyledTableCell align="center">
+                      VIEW DETAILS
+                    </StyledTableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <StyledTableRow>
+                    <StyledTableCell component="th" scope="row">
+                      {
+                        scanFile?.certificate_analysis
+                          .certificate_findings[0][1]
+                      }
+                    </StyledTableCell>
 
-                  <StyledTableCell align="center">
-                    <Link to="">View Details</Link>
-                  </StyledTableCell>
-                </StyledTableRow>
-                <StyledTableRow>
-                  <StyledTableCell component="th" scope="row">
-                    {/* {binary_analysis["Binary makes use of malloc function"].masvs} */}
-                    Binary makes use of Logging function
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {/* {binary_analysis["Binary makes use of malloc function"].cvss} */}
-                    Binary makes use of malloc function
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    <Button>Medium</Button>
-                    {/* <Button
-                    w="120px"
-                    br="5px"
-                    color="#000"
-                    fs="16px"
-                    p="10px"
-                    style={{
-                      backgroundColor:
-                        (binary_analysis["Binary makes use of malloc function"]
-                          .severity === "info" &&
-                          "#3DDB84") ||
-                        (binary_analysis["Binary makes use of malloc function"]
-                          .severity === "high" &&
-                          "#FE1102") ||
-                        (binary_analysis["Binary makes use of malloc function"]
-                          .severity === "unknow" &&
-                          "#FAB626"),
-                    }}
-                  >
-                    {
-                      binary_analysis["Binary makes use of malloc function"]
-                        .severity
-                    }
-                  </Button> */}
-                  </StyledTableCell>
+                    <StyledTableCell align="center">
+                      <button
+                        className="py-2 px-8 rounded-md text-white"
+                        style={{
+                          backgroundColor:
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[0][0] === "info" &&
+                              "#3DDB84") ||
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[0][0] === "high" &&
+                              "#FE1102") ||
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[0][0] === "warning" &&
+                              "#FAB626") ||
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[0][0] === "secure" &&
+                              "#3DDB84"),
+                        }}
+                      >
+                        {
+                          scanFile?.certificate_analysis
+                            .certificate_findings[0][0]
+                        }
+                      </button>
+                    </StyledTableCell>
 
-                  <StyledTableCell align="center">
-                    <Link to="">View Details</Link>
-                  </StyledTableCell>
-                </StyledTableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </AccordionBody>
+                    <StyledTableCell align="center">
+                      <Link to="">View Details</Link>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                  <StyledTableRow>
+                    <StyledTableCell component="th" scope="row">
+                      {
+                        scanFile?.certificate_analysis
+                          .certificate_findings[1][1]
+                      }
+                    </StyledTableCell>
+
+                    <StyledTableCell align="center">
+                      <div
+                        className="py-2 px-8 rounded-md text-white"
+                        style={{
+                          backgroundColor:
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[1][0] === "info" &&
+                              "#3DDB84") ||
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[1][0] === "high" &&
+                              "#FE1102") ||
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[1][0] === "warning" &&
+                              "#FAB626") ||
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[1][0] === "secure" &&
+                              "#3DDB84"),
+                        }}
+                      >
+                        {
+                          scanFile?.certificate_analysis
+                            .certificate_findings[1][0]
+                        }
+                      </div>
+                    </StyledTableCell>
+
+                    <StyledTableCell align="center">
+                      <Link to="">View Details</Link>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                  <StyledTableRow>
+                    <StyledTableCell component="th" scope="row">
+                      {
+                        scanFile?.certificate_analysis
+                          .certificate_findings[2][1]
+                      }
+                    </StyledTableCell>
+
+                    <StyledTableCell align="center">
+                      <div
+                        className="py-2 px-8 rounded-md text-white"
+                        style={{
+                          backgroundColor:
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[2][0] === "info" &&
+                              "#3DDB84") ||
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[2][0] === "high" &&
+                              "#FE1102") ||
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[2][0] === "warning" &&
+                              "#FAB626") ||
+                            (scanFile?.certificate_analysis
+                              .certificate_findings[2][0] === "secure" &&
+                              "#3DDB84"),
+                        }}
+                      >
+                        {
+                          scanFile?.certificate_analysis
+                            .certificate_findings[2][0]
+                        }
+                      </div>
+                    </StyledTableCell>
+
+                    <StyledTableCell align="center">
+                      <Link to="">View Details</Link>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </AccordionBody>
+        ) : (
+          <div>No file result for the scan</div>
+        )}
       </Accordion>
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(2)}>
           Manifest Analysis
         </AccordionHeader>
-        <AccordionBody>
+        {scanFile?.manifest_analysis ? (<AccordionBody>
           <TableContainer>
             <Table aria-label="customized table">
               <TableHead>
@@ -232,7 +227,7 @@ export default function ApkAccordion() {
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
-                        <button
+                        <div
                           className="py-2 px-8 rounded-md text-white"
                           style={{
                             backgroundColor:
@@ -243,7 +238,7 @@ export default function ApkAccordion() {
                           }}
                         >
                           {item?.stat || "N/A"}
-                        </button>
+                        </div>
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
@@ -255,14 +250,22 @@ export default function ApkAccordion() {
               </TableBody>
             </Table>
           </TableContainer>
-        </AccordionBody>
+        </AccordionBody>) : 
+
+(<div>No file result for the scan</div>)}
+        
       </Accordion>
       <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(3)}>
-          Binary Analysis (fortify)
+          Binary Analysis
         </AccordionHeader>
+
         <AccordionBody>
           <TableContainer>
+            <h3 className="font-bold text-lg pl-4">
+              {" "}
+              Binary Analysis (fortify)
+            </h3>
             <Table aria-label="customized table">
               <TableHead>
                 <TableRow>
@@ -284,7 +287,7 @@ export default function ApkAccordion() {
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
-                        <button
+                        <div
                           className="py-2 px-8 rounded-md text-white"
                           style={{
                             backgroundColor:
@@ -295,7 +298,7 @@ export default function ApkAccordion() {
                           }}
                         >
                           {fortify?.severity || "N/A"}
-                        </button>
+                        </div>
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
@@ -307,13 +310,8 @@ export default function ApkAccordion() {
               </TableBody>
             </Table>
           </TableContainer>
-        </AccordionBody>
-      </Accordion>
-      <Accordion open={open === 4} icon={<Icon id={4} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(4)}>
-          Binary Analysis (NX)
-        </AccordionHeader>
-        <AccordionBody>
+
+          <h3 className="font-bold text-lg pl-4">Binary Analysis (NX)</h3>
           <TableContainer>
             <Table aria-label="customized table">
               <TableHead>
@@ -327,7 +325,7 @@ export default function ApkAccordion() {
               </TableHead>
               <TableBody>
                 {scanFile.binary_analysis.map((item, key) => {
-                  const {  nx } = item;
+                  const { nx } = item;
 
                   return (
                     <StyledTableRow key={key}>
@@ -359,13 +357,7 @@ export default function ApkAccordion() {
               </TableBody>
             </Table>
           </TableContainer>
-        </AccordionBody>
-      </Accordion>
-      <Accordion open={open === 5} icon={<Icon id={5} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(5)}>
-          Binary Analysis (rPath)
-        </AccordionHeader>
-        <AccordionBody>
+          <h3 className="font-bold text-lg pl-4"> Binary Analysis (rPath)</h3>
           <TableContainer>
             <Table aria-label="customized table">
               <TableHead>
@@ -411,65 +403,10 @@ export default function ApkAccordion() {
               </TableBody>
             </Table>
           </TableContainer>
-        </AccordionBody>
-      </Accordion>
-      <Accordion open={open === 6} icon={<Icon id={6} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(6)}>
-          Binary Analysis (runpath)
-        </AccordionHeader>
-        <AccordionBody>
-          <TableContainer>
-            <Table aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>DESCRIPTION</StyledTableCell>
-
-                  <StyledTableCell align="center">SEVERITY</StyledTableCell>
-                  {/* <StyledTableCell align="center">STATUS</StyledTableCell> */}
-                  <StyledTableCell align="center">VIEW DETAILS</StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {scanFile.binary_analysis.map((item, key) => {
-                  const { runpath } = item;
-
-                  return (
-                    <StyledTableRow key={key}>
-                      <StyledTableCell component="th" scope="row">
-                        {runpath.description}
-                      </StyledTableCell>
-
-                      <StyledTableCell align="center">
-                        <button
-                          className="py-2 px-8 rounded-md text-white"
-                          style={{
-                            backgroundColor:
-                              (runpath?.severity === "info" && "#3DDB84") ||
-                              (runpath?.severity === "high" && "#FE1102") ||
-                              (runpath?.severity === "warning" && "#FAB626") ||
-                              (runpath?.severity === "secure" && "#3DDB84"),
-                          }}
-                        >
-                          {runpath?.severity}
-                        </button>
-                      </StyledTableCell>
-
-                      <StyledTableCell align="center">
-                        <Link to="">View Details</Link>
-                      </StyledTableCell>
-                    </StyledTableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </AccordionBody>
-      </Accordion>
-      <Accordion open={open === 8} icon={<Icon id={8} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(8)}>
-          Binary Analysis (stack_canary)
-        </AccordionHeader>
-        <AccordionBody>
+          <h3 className="font-bold text-lg pl-4">
+            {" "}
+            Binary Analysis (stack_canary)
+          </h3>
           <TableContainer>
             <Table aria-label="customized table">
               <TableHead>
@@ -519,13 +456,7 @@ export default function ApkAccordion() {
               </TableBody>
             </Table>
           </TableContainer>
-        </AccordionBody>
-      </Accordion>
-      <Accordion open={open === 7} icon={<Icon id={7} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(7)}>
-          Binary Analysis (symbol)
-        </AccordionHeader>
-        <AccordionBody>
+          <h3 className="font-bold text-lg pl-4"> Binary Analysis (symbol)</h3>
           <TableContainer>
             <Table aria-label="customized table">
               <TableHead>
@@ -573,8 +504,8 @@ export default function ApkAccordion() {
           </TableContainer>
         </AccordionBody>
       </Accordion>
-      <Accordion open={open === 9} icon={<Icon id={9} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(9)}>
+      <Accordion open={open === 4} icon={<Icon id={4} open={open} />}>
+        <AccordionHeader onClick={() => handleOpen(4)}>
           Network Security
         </AccordionHeader>
         <AccordionBody>
@@ -591,8 +522,6 @@ export default function ApkAccordion() {
               </TableHead>
               <TableBody>
                 {scanFile.network_security.map((item, key) => {
-                  
-
                   return (
                     <StyledTableRow key={key}>
                       <StyledTableCell component="th" scope="row">
@@ -625,8 +554,56 @@ export default function ApkAccordion() {
           </TableContainer>
         </AccordionBody>
       </Accordion>
-      
-      
+      <Accordion open={open === 5} icon={<Icon id={5} open={open} />}>
+        <AccordionHeader onClick={() => handleOpen(5)}>
+          Permission
+        </AccordionHeader>
+        <AccordionBody>
+          <TableContainer>
+            <Table aria-label="customized table">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell>DESCRIPTION</StyledTableCell>
+
+                  <StyledTableCell align="center">SEVERITY</StyledTableCell>
+                  {/* <StyledTableCell align="center">STATUS</StyledTableCell> */}
+                  <StyledTableCell align="center">VIEW DETAILS</StyledTableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {scanFile.network_security.map((item, key) => {
+                  return (
+                    <StyledTableRow key={key}>
+                      <StyledTableCell component="th" scope="row">
+                        {item.description}
+                      </StyledTableCell>
+
+                      <StyledTableCell align="center">
+                        <button
+                          className="py-2 px-8 rounded-md text-white"
+                          style={{
+                            backgroundColor:
+                              (item?.severity === "info" && "#3DDB84") ||
+                              (item?.severity === "high" && "#FE1102") ||
+                              (item?.severity === "warning" && "#FAB626") ||
+                              (item?.severity === "secure" && "#0096FF"),
+                          }}
+                        >
+                          {item?.severity || "N/A"}
+                        </button>
+                      </StyledTableCell>
+
+                      <StyledTableCell align="center">
+                        <Link to="">View Details</Link>
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </AccordionBody>
+      </Accordion>
     </div>
   );
 }
