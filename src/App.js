@@ -20,6 +20,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import UploadScan from "dashboard/Pages/UploadScan";
 import IOSReport from "dashboard/Pages/ScanReports/IOSReport";
 import APKReport from "dashboard/Pages/ScanReports/APKReport";
+import ReportPdf from "dashboard/Pages/ReportPdf";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/upload-scan" element={<UploadScan />} />
+            <Route path="report-pdf" element={<ReportPdf />} />
             {/* <Route path="/new-modal" element={<NewProjectModal />} /> */}
             <Route path="/login" element={<Login />} />
             <Route path="/verify" element={<Activate />} />
@@ -62,6 +64,7 @@ function App() {
               <Route path="/dashboard/home" element={<Hompage />} />
               <Route path="/dashboard/report-ios" element={<IOSReport />} />
               <Route path="/dashboard/report-apk" element={<APKReport />} />
+              
             </Route>
           </Routes>
         </Router>
