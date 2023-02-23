@@ -3,7 +3,6 @@ import {
   Accordion,
   AccordionHeader,
   AccordionBody,
-  Button,
 } from "@material-tailwind/react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -334,7 +333,7 @@ export default function ApkAccordion() {
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
-                        <button
+                        <div
                           className="py-2 px-8 rounded-md text-white"
                           style={{
                             backgroundColor:
@@ -345,7 +344,7 @@ export default function ApkAccordion() {
                           }}
                         >
                           {nx?.severity}
-                        </button>
+                        </div>
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
@@ -380,7 +379,7 @@ export default function ApkAccordion() {
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
-                        <button
+                        <div
                           className="py-2 px-8 rounded-md text-white"
                           style={{
                             backgroundColor:
@@ -391,7 +390,7 @@ export default function ApkAccordion() {
                           }}
                         >
                           {rpath?.severity}
-                        </button>
+                        </div>
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
@@ -429,7 +428,7 @@ export default function ApkAccordion() {
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
-                        <button
+                        <div
                           className="py-2 px-8 rounded-md text-white"
                           style={{
                             backgroundColor:
@@ -444,7 +443,7 @@ export default function ApkAccordion() {
                           }}
                         >
                           {stack_canary?.severity}
-                        </button>
+                        </div>
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
@@ -479,7 +478,7 @@ export default function ApkAccordion() {
                       </StyledTableCell>
 
                       <StyledTableCell align="center">
-                        <button
+                        <div
                           className="py-2 px-8 rounded-md text-white"
                           style={{
                             backgroundColor:
@@ -490,7 +489,7 @@ export default function ApkAccordion() {
                           }}
                         >
                           {symbol?.severity}
-                        </button>
+                        </div>
                       </StyledTableCell>
 
                       <StyledTableCell align="center">

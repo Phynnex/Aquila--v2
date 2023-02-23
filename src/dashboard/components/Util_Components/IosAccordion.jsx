@@ -3,7 +3,7 @@ import {
   Accordion,
   AccordionHeader,
   AccordionBody,
-  Button,
+  
 } from "@material-tailwind/react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -223,140 +223,234 @@ export default function IosAccordion() {
       </Accordion>
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(2)}>
-          Manifest Analysis
+          Marcho Analysis
         </AccordionHeader>
         <AccordionBody>
           <TableContainer>
             <Table aria-label="customized table">
               <TableHead>
                 <TableRow>
-                  <StyledTableCell>MASVS</StyledTableCell>
-                  <StyledTableCell align="center">CVSS</StyledTableCell>
-                  <StyledTableCell align="center">SEVERITY</StyledTableCell>
-                  {/* <StyledTableCell align="center">STATUS</StyledTableCell> */}
-                  <StyledTableCell align="center">VIEW DETAILS</StyledTableCell>
+                  <StyledTableCell>DESCRIPTION</StyledTableCell>
+                  <StyledTableCell align="center">SEVERITY</StyledTableCell>                 
+                  <StyledTableCell align="center">DETAILS</StyledTableCell>                 
                 </TableRow>
               </TableHead>
               <TableBody>
                 <StyledTableRow>
                   <StyledTableCell component="th" scope="row">
-                    {/* {binary_analysis["Binary makes use of Logging function"]
-                    .masvs || "N/A"} */}
-                    Binary makes use of Logging function
+                    <p className="font-semibold text-2xl">arc</p>
+                  {scanFile?.macho_analysis?.arc?.description}
+                   
                   </StyledTableCell>
+                  
                   <StyledTableCell align="center">
-                    {/* {binary_analysis["Binary makes use of Logging function"]
-                    .cvss || "N/A"} */}
-                    Binary makes use of Logging function
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    <Button>High</Button>
-                    {/* <Button
-                    w="120px"
-                    br="5px"
-                    color="#000"
-                    fs="16px"
-                    p="10px"
-                    style={{
-                      backgroundColor:
-                        (binary_analysis["Binary makes use of Logging function"]
-                          .severity === "info" &&
-                          "#3DDB84") ||
-                        (binary_analysis["Binary makes use of Logging function"]
-                          .severity === "high" &&
-                          "#FE1102") ||
-                        (binary_analysis["Binary makes use of Logging function"]
-                          .severity === "unknow" &&
-                          "#FAB626"),
-                    }}
-                  >
-                    {
-                      binary_analysis["Binary makes use of Logging function"]
-                        .severity
-                    }
-                  </Button> */}
+                    <div
+                          className="py-2 px-8 rounded-md text-white"
+                          style={{
+                            backgroundColor:
+                              (scanFile?.macho_analysis?.arc?.severity === "info" && "#3DDB84") ||
+                              (scanFile?.macho_analysis?.arc?.severity === "high" && "#FE1102") ||
+                              (scanFile?.macho_analysis?.arc?.severity === "warning" && "#FAB626") ||
+                              (scanFile?.macho_analysis?.arc?.severity === "secure" && "#0096FF"),
+                          }}
+                        >
+                          {scanFile?.macho_analysis?.arc?.severity || "N/A"}
+                        </div>
                   </StyledTableCell>
 
                   <StyledTableCell align="center">
                     <Link to="">View Details</Link>
                   </StyledTableCell>
                 </StyledTableRow>
+                
                 <StyledTableRow>
                   <StyledTableCell component="th" scope="row">
-                    {/* {binary_analysis["Binary makes use of insecure API(s)"].masvs} */}
-                    Binary makes use of insecure API(s)
+                    <p className="font-semibold text-2xl">Code Signature</p>
+                  {scanFile?.macho_analysis?.code_signature?.description}
+                   
                   </StyledTableCell>
+                  
                   <StyledTableCell align="center">
-                    {/* {binary_analysis["Binary makes use of insecure API(s)"].cvss} */}
-                    Binary makes use of insecure API(s)
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    <Button>Low</Button>
-                    {/* <Button
-                    w="120px"
-                    br="5px"
-                    color="#000"
-                    fs="16px"
-                    p="10px"
-                    style={{
-                      backgroundColor:
-                        (binary_analysis["Binary makes use of insecure API(s)"]
-                          .severity === "info" &&
-                          "#3DDB84") ||
-                        (binary_analysis["Binary makes use of insecure API(s)"]
-                          .severity === "high" &&
-                          "#FE1102") ||
-                        (binary_analysis["Binary makes use of insecure API(s)"]
-                          .severity === "unknow" &&
-                          "#FAB626"),
-                    }}
-                  >
-                    {
-                      binary_analysis["Binary makes use of insecure API(s)"]
-                        .severity
-                    }
-                  </Button> */}
+                    <div
+                          className="py-2 px-8 rounded-md text-white"
+                          style={{
+                            backgroundColor:
+                              (scanFile?.macho_analysis?.code_signature?.severity === "info" && "#3DDB84") ||
+                              (scanFile?.macho_analysis?.code_signature?.severity === "high" && "#FE1102") ||
+                              (scanFile?.macho_analysis?.code_signature?.severity === "warning" && "#FAB626") ||
+                              (scanFile?.macho_analysis?.code_signature?.severity === "secure" && "#0096FF"),
+                          }}
+                        >
+                          {scanFile?.macho_analysis?.code_signature?.severity || "N/A"}
+                        </div>
                   </StyledTableCell>
 
                   <StyledTableCell align="center">
                     <Link to="">View Details</Link>
                   </StyledTableCell>
                 </StyledTableRow>
+                
                 <StyledTableRow>
                   <StyledTableCell component="th" scope="row">
-                    {/* {binary_analysis["Binary makes use of malloc function"].masvs} */}
-                    Binary makes use of Logging function
+                    <p className="font-semibold text-2xl">encrypted</p>
+                  {scanFile?.macho_analysis?.encrypted?.description}
+                   
                   </StyledTableCell>
+                  
                   <StyledTableCell align="center">
-                    {/* {binary_analysis["Binary makes use of malloc function"].cvss} */}
-                    Binary makes use of malloc function
+                    <div
+                          className="py-2 px-8 rounded-md text-white"
+                          style={{
+                            backgroundColor:
+                              (scanFile?.macho_analysis?.encrypted?.severity === "info" && "#3DDB84") ||
+                              (scanFile?.macho_analysis?.encrypted?.severity === "high" && "#FE1102") ||
+                              (scanFile?.macho_analysis?.encrypted?.severity === "warning" && "#FAB626") ||
+                              (scanFile?.macho_analysis?.encrypted?.severity === "secure" && "#0096FF"),
+                          }}
+                        >
+                          {scanFile?.macho_analysis?.encrypted?.severity || "N/A"}
+                        </div>
                   </StyledTableCell>
+
                   <StyledTableCell align="center">
-                    <Button>Medium</Button>
-                    {/* <Button
-                    w="120px"
-                    br="5px"
-                    color="#000"
-                    fs="16px"
-                    p="10px"
-                    style={{
-                      backgroundColor:
-                        (binary_analysis["Binary makes use of malloc function"]
-                          .severity === "info" &&
-                          "#3DDB84") ||
-                        (binary_analysis["Binary makes use of malloc function"]
-                          .severity === "high" &&
-                          "#FE1102") ||
-                        (binary_analysis["Binary makes use of malloc function"]
-                          .severity === "unknow" &&
-                          "#FAB626"),
-                    }}
-                  >
-                    {
-                      binary_analysis["Binary makes use of malloc function"]
-                        .severity
-                    }
-                  </Button> */}
+                    <Link to="">View Details</Link>
+                  </StyledTableCell>
+                </StyledTableRow>
+
+                <StyledTableRow>
+                  <StyledTableCell component="th" scope="row">
+                    <p className="font-semibold text-2xl">nx</p>
+                  {scanFile?.macho_analysis?.nx?.description}
+                   
+                  </StyledTableCell>
+                  
+                  <StyledTableCell align="center">
+                    <div
+                          className="py-2 px-8 rounded-md text-white"
+                          style={{
+                            backgroundColor:
+                              (scanFile?.macho_analysis?.nx?.severity === "info" && "#3DDB84") ||
+                              (scanFile?.macho_analysis?.nx?.severity === "high" && "#FE1102") ||
+                              (scanFile?.macho_analysis?.nx?.severity === "warning" && "#FAB626") ||
+                              (scanFile?.macho_analysis?.nx?.severity === "secure" && "#0096FF"),
+                          }}
+                        >
+                          {scanFile?.macho_analysis?.nx?.severity || "N/A"}
+                        </div>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <Link to="">View Details</Link>
+                  </StyledTableCell>
+                </StyledTableRow>
+
+                <StyledTableRow>
+                  <StyledTableCell component="th" scope="row">
+                    <p className="font-semibold text-2xl">pie</p>
+                  {scanFile?.macho_analysis?.pie?.description}
+                   
+                  </StyledTableCell>
+                  
+                  <StyledTableCell align="center">
+                    <div
+                          className="py-2 px-8 rounded-md text-white"
+                          style={{
+                            backgroundColor:
+                              (scanFile?.macho_analysis?.pie?.severity === "info" && "#3DDB84") ||
+                              (scanFile?.macho_analysis?.pie?.severity === "high" && "#FE1102") ||
+                              (scanFile?.macho_analysis?.pie?.severity === "warning" && "#FAB626") ||
+                              (scanFile?.macho_analysis?.pie?.severity === "secure" && "#0096FF"),
+                          }}
+                        >
+                          {scanFile?.macho_analysis?.pie?.severity || "N/A"}
+                        </div>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <Link to="">View Details</Link>
+                  </StyledTableCell>
+                </StyledTableRow>
+
+                <StyledTableRow>
+                  <StyledTableCell component="th" scope="row">
+                    <p className="font-semibold text-2xl">rpath</p>
+                  {scanFile?.macho_analysis?.rpath?.description}
+                   
+                  </StyledTableCell>
+                  
+                  <StyledTableCell align="center">
+                    <div
+                          className="py-2 px-8 rounded-md text-white"
+                          style={{
+                            backgroundColor:
+                              (scanFile?.macho_analysis?.rpath?.severity === "info" && "#3DDB84") ||
+                              (scanFile?.macho_analysis?.rpath?.severity === "high" && "#FE1102") ||
+                              (scanFile?.macho_analysis?.rpath?.severity === "warning" && "#FAB626") ||
+                              (scanFile?.macho_analysis?.rpath?.severity === "secure" && "#0096FF"),
+                          }}
+                        >
+                          {scanFile?.macho_analysis?.rpath?.severity || "N/A"}
+                        </div>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <Link to="">View Details</Link>
+                  </StyledTableCell>
+                </StyledTableRow>
+
+                <StyledTableRow>
+                  <StyledTableCell component="th" scope="row">
+                    <p className="font-semibold text-2xl">stack_canary
+</p>
+                  {scanFile?.macho_analysis?.stack_canary
+?.description}
+                   
+                  </StyledTableCell>
+                  
+                  <StyledTableCell align="center">
+                    <div
+                          className="py-2 px-8 rounded-md text-white"
+                          style={{
+                            backgroundColor:
+                              (scanFile?.macho_analysis?.stack_canary
+?.severity === "info" && "#3DDB84") ||
+                              (scanFile?.macho_analysis?.stack_canary
+?.severity === "high" && "#FE1102") ||
+                              (scanFile?.macho_analysis?.stack_canary
+?.severity === "warning" && "#FAB626") ||
+                              (scanFile?.macho_analysis?.stack_canary
+?.severity === "secure" && "#0096FF"),
+                          }}
+                        >
+                          {scanFile?.macho_analysis?.arc?.severity || "N/A"}
+                        </div>
+                  </StyledTableCell>
+
+                  <StyledTableCell align="center">
+                    <Link to="">View Details</Link>
+                  </StyledTableCell>
+                </StyledTableRow>
+
+                <StyledTableRow>
+                  <StyledTableCell component="th" scope="row">
+                    <p className="font-semibold text-2xl">symbol</p>
+                  {scanFile?.macho_analysis?.symbol?.description}
+                   
+                  </StyledTableCell>
+                  
+                  <StyledTableCell align="center">
+                    <div
+                          className="py-2 px-8 rounded-md text-white"
+                          style={{
+                            backgroundColor:
+                              (scanFile?.macho_analysis?.symbol?.severity === "info" && "#3DDB84") ||
+                              (scanFile?.macho_analysis?.symbol?.severity === "high" && "#FE1102") ||
+                              (scanFile?.macho_analysis?.symbol?.severity === "warning" && "#FAB626") ||
+                              (scanFile?.macho_analysis?.symbol?.severity === "secure" && "#0096FF"),
+                          }}
+                        >
+                          {scanFile?.macho_analysis?.arc?.severity || "N/A"}
+                        </div>
                   </StyledTableCell>
 
                   <StyledTableCell align="center">
@@ -368,153 +462,7 @@ export default function IosAccordion() {
           </TableContainer>
         </AccordionBody>
       </Accordion>
-      <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(3)}>
-          Binary Analysis
-        </AccordionHeader>
-        <AccordionBody>
-          <TableContainer>
-            <Table aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>MASVS</StyledTableCell>
-                  <StyledTableCell align="center">CVSS</StyledTableCell>
-                  <StyledTableCell align="center">SEVERITY</StyledTableCell>
-                  {/* <StyledTableCell align="center">STATUS</StyledTableCell> */}
-                  <StyledTableCell align="center">VIEW DETAILS</StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <StyledTableRow>
-                  <StyledTableCell component="th" scope="row">
-                    {/* {binary_analysis["Binary makes use of Logging function"]
-                    .masvs || "N/A"} */}
-                    Binary makes use of Logging function
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {/* {binary_analysis["Binary makes use of Logging function"]
-                    .cvss || "N/A"} */}
-                    Binary makes use of Logging function
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    <Button>High</Button>
-                    {/* <Button
-                    w="120px"
-                    br="5px"
-                    color="#000"
-                    fs="16px"
-                    p="10px"
-                    style={{
-                      backgroundColor:
-                        (binary_analysis["Binary makes use of Logging function"]
-                          .severity === "info" &&
-                          "#3DDB84") ||
-                        (binary_analysis["Binary makes use of Logging function"]
-                          .severity === "high" &&
-                          "#FE1102") ||
-                        (binary_analysis["Binary makes use of Logging function"]
-                          .severity === "unknow" &&
-                          "#FAB626"),
-                    }}
-                  >
-                    {
-                      binary_analysis["Binary makes use of Logging function"]
-                        .severity
-                    }
-                  </Button> */}
-                  </StyledTableCell>
-
-                  <StyledTableCell align="center">
-                    <Link to="">View Details</Link>
-                  </StyledTableCell>
-                </StyledTableRow>
-                <StyledTableRow>
-                  <StyledTableCell component="th" scope="row">
-                    {/* {binary_analysis["Binary makes use of insecure API(s)"].masvs} */}
-                    Binary makes use of insecure API(s)
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {/* {binary_analysis["Binary makes use of insecure API(s)"].cvss} */}
-                    Binary makes use of insecure API(s)
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    <Button>Low</Button>
-                    {/* <Button
-                    w="120px"
-                    br="5px"
-                    color="#000"
-                    fs="16px"
-                    p="10px"
-                    style={{
-                      backgroundColor:
-                        (binary_analysis["Binary makes use of insecure API(s)"]
-                          .severity === "info" &&
-                          "#3DDB84") ||
-                        (binary_analysis["Binary makes use of insecure API(s)"]
-                          .severity === "high" &&
-                          "#FE1102") ||
-                        (binary_analysis["Binary makes use of insecure API(s)"]
-                          .severity === "unknow" &&
-                          "#FAB626"),
-                    }}
-                  >
-                    {
-                      binary_analysis["Binary makes use of insecure API(s)"]
-                        .severity
-                    }
-                  </Button> */}
-                  </StyledTableCell>
-
-                  <StyledTableCell align="center">
-                    <Link to="">View Details</Link>
-                  </StyledTableCell>
-                </StyledTableRow>
-                <StyledTableRow>
-                  <StyledTableCell component="th" scope="row">
-                    {/* {binary_analysis["Binary makes use of malloc function"].masvs} */}
-                    Binary makes use of Logging function
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {/* {binary_analysis["Binary makes use of malloc function"].cvss} */}
-                    Binary makes use of malloc function
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    <Button>Medium</Button>
-                    {/* <Button
-                    w="120px"
-                    br="5px"
-                    color="#000"
-                    fs="16px"
-                    p="10px"
-                    style={{
-                      backgroundColor:
-                        (binary_analysis["Binary makes use of malloc function"]
-                          .severity === "info" &&
-                          "#3DDB84") ||
-                        (binary_analysis["Binary makes use of malloc function"]
-                          .severity === "high" &&
-                          "#FE1102") ||
-                        (binary_analysis["Binary makes use of malloc function"]
-                          .severity === "unknow" &&
-                          "#FAB626"),
-                    }}
-                  >
-                    {
-                      binary_analysis["Binary makes use of malloc function"]
-                        .severity
-                    }
-                  </Button> */}
-                  </StyledTableCell>
-
-                  <StyledTableCell align="center">
-                    <Link to="">View Details</Link>
-                  </StyledTableCell>
-                </StyledTableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </AccordionBody>
-      </Accordion>
+      
     </div>
   );
 }
