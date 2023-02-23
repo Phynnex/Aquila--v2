@@ -37,7 +37,7 @@ const APKReport = () => {
           </div>
           <div>
             <p className="text-secondary font-semibold">Medium severity test</p>
-            <p className="text-secondary">34</p>
+            <p className="text-secondary"></p>
           </div>
         </div>
         <div className="flex justify-between mt-6 pr-32">
@@ -45,17 +45,17 @@ const APKReport = () => {
             <p className="text-secondary font-semibold">
               Total Scanned vulnerability
             </p>
-            <p className="text-secondary">34</p>
+            <p className="text-secondary"></p>
           </div>
           <div>
             <p className="text-secondary font-semibold ">
               Total vulnerability detected
             </p>
-            <p className="text-secondary">34</p>
+            <p className="text-secondary"></p>
           </div>
           <div>
             <p className="text-secondary font-semibold">Package Version</p>
-            <p className="text-secondary">34</p>
+            <p className="text-secondary"></p>
           </div>
         </div>
       </div>

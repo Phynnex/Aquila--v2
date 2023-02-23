@@ -1,4 +1,3 @@
-import Navbar from "dashboard/components/nav/Navbar";
 import Logo from "assets/Logo2.png";
 
 const ReportPdf = () => {
