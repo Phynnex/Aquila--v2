@@ -1,14 +1,15 @@
 import { useStateContext } from "Context/ContextProvider";
-import ApkAccordion from './../../components/Util_Components/ApkAccordion';
-
-
+import ApkAccordion from "./../../components/Util_Components/ApkAccordion";
+import PlayStoreModal from "./../../components/Modals/PlayStoreModal";
 
 const APKReport = () => {
-    const { scanFile } = useStateContext();
-    
-    
+  const { scanFile, openModal, setOpenModal } = useStateContext();
+
   return (
+    <>
+     {openModal && <PlayStoreModal/>}
     <div className="">
+      
       <div className="flex justify-between items-center">
         <p className="text-secondary font-semibold ">
           Vulnerability Scan Report:
@@ -30,9 +31,7 @@ const APKReport = () => {
             <p className="text-secondary">{scanFile?.app_name}</p>
           </div>
           <div>
-            <p className="text-secondary font-semibold">
-              Package Version
-            </p>
+            <p className="text-secondary font-semibold">Package Version</p>
             <p className="text-secondary">{scanFile?.version_name}</p>
           </div>
           <div>
@@ -59,8 +58,22 @@ const APKReport = () => {
           </div>
         </div>
       </div>
+     
+      {scanFile?.playstore_details &&
+
+        <div
+        onClick={() => setOpenModal(true)}
+        className="flex justify-end mr-14"
+      >
+        <button className="py-2 px-4 bg-secondary text-white rounded-md hover:bg-white hover:text-secondary hover:border-2 hover:font-semibold">
+          Play Store
+        </button>
+      </div>
+      }
+      
       <ApkAccordion />
     </div>
+    </>
   );
 };
 

@@ -112,7 +112,7 @@ const UploadScan = () => {
           </div>
         )}
         {uploadedFile && (
-          <div className="flex flex-col items-center text-right  pt-9">
+          <div className="text-center">
             <p>Project : {uploadedFile?.project}</p>
             <p>File Name : {uploadedFile?.file_name}</p>
             <p>Hash : {uploadedFile?.hash}</p>

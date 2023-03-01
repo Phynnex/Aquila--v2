@@ -26,7 +26,7 @@ const UploadApk = () => {
           <p>Sha5 : {reports?.data?.data?.apk?.MD5}</p>
           <p>App Name : {reports?.data?.data?.apk?.APP_NAME}</p>
           
-          <button className="bg-secondary p-2 text-white">View Full Report</button>
+          <button className="bg-secondary p-2 text-white rounded-md pt-4">View Full Report</button>
           
         </div>
       )}
