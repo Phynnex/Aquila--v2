@@ -65,7 +65,9 @@ export default function IosAccordion() {
         <AccordionHeader onClick={() => handleOpen(1)}>
           Binary Analysis
         </AccordionHeader>
-        <AccordionBody>
+        
+          <AccordionBody>
+          {scanFile?.binary_analysis ? (
           <TableContainer>
             <Table aria-label="customized table">
               <TableHead>
@@ -219,8 +221,15 @@ export default function IosAccordion() {
               </TableBody>
             </Table>
           </TableContainer>
+          ) : (
+            <div>No file result for the scan</div>
+          )}
         </AccordionBody>
+       
+        
       </Accordion>
+
+      
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(2)}>
           Marcho Analysis

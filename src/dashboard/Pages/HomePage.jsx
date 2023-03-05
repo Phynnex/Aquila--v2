@@ -8,17 +8,22 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "Api/axios";
 
 const Hompage = () => {
-  const { projectName: project_name, setReports } = useStateContext();
+  const { projectName: project_name, setReports, reports } = useStateContext();
   const { data } = useQuery({
     queryKey: ["Report", project_name],
     queryFn: () =>
       axios.get("api/reports/", {
         params: {
           project_name,
+          
         },
       }),
-  });
-  setReports(data);
+      
+    });
+    setReports(data);
+  
+    // console.log(data, 'data')
+  // console.log(reports.data.data.apk.length, 'report')
 
   
   return (

@@ -5,6 +5,10 @@ import PlayStoreModal from "./../../components/Modals/PlayStoreModal";
 const APKReport = () => {
   const { scanFile, openModal, setOpenModal } = useStateContext();
 
+  const handleSendEmail = () => {
+    console.log('sendToEmail')
+  }
+
   return (
     <>
      {openModal && <PlayStoreModal/>}
@@ -18,7 +22,7 @@ const APKReport = () => {
           <button className="py-2 px-4 bg-secondary text-white rounded-md hover:bg-white hover:text-secondary hover:border-2 hover:font-semibold">
             Download report
           </button>
-          <button className="py-2 px-4 bg-secondary text-white rounded-md hover:bg-white hover:text-secondary hover:border-2 hover:font-semibold">
+          <button onClick={handleSendEmail} className="py-2 px-4 bg-secondary text-white rounded-md hover:bg-white hover:text-secondary hover:border-2 hover:font-semibold">
             Send report to mail
           </button>
         </div>

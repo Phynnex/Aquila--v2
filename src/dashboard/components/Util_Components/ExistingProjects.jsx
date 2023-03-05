@@ -7,12 +7,17 @@ import { useStateContext } from "Context/ContextProvider";
 
 const ExistingProjects = ({ project }) => {
   const navigate = useNavigate();
-  const { setProjectName } = useStateContext();
+  const { setProjectName, projectX, setProjectX } = useStateContext();
+
 
   const handleClick = () => {
+    console.log(projectX, 'pro')
+    setProjectX(project)
     setProjectName(project.name);
     navigate("/dashboard/home");
   };
+
+
   return (
     <div
       onClick={handleClick}

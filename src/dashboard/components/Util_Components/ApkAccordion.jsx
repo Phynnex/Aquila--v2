@@ -67,8 +67,8 @@ export default function ApkAccordion() {
 
         
           <AccordionBody>
-          {scanFile?.certificate_analysis ? (
-            <TableContainer>
+          {scanFile.certificate_analysis ? (
+             <TableContainer>
               <Table aria-label="customized table">
                 <TableHead>
                   <TableRow>
@@ -83,8 +83,7 @@ export default function ApkAccordion() {
                   <StyledTableRow>
                     <StyledTableCell component="th" scope="row">
                       {
-                        scanFile?.certificate_analysis
-                          .certificate_findings[0][1] 
+                        scanFile?.certificate_analysis?.certificate_findings[0][1]
                       }
                     </StyledTableCell>
 
@@ -159,8 +158,7 @@ export default function ApkAccordion() {
                   <StyledTableRow>
                     <StyledTableCell component="th" scope="row">
                       {
-                        scanFile?.certificate_analysis
-                          .certificate_findings[2][1]
+                        scanFile?.certificate_analysis?.certificate_findings[0][2]
                       }
                     </StyledTableCell>
 
@@ -170,22 +168,22 @@ export default function ApkAccordion() {
                         style={{
                           backgroundColor:
                             (scanFile?.certificate_analysis
-                              .certificate_findings[2][0] === "info" &&
+                              .certificate_findings[0][0] === "info" &&
                               "#3DDB84") ||
                             (scanFile?.certificate_analysis
-                              .certificate_findings[2][0] === "high" &&
+                              .certificate_findings[0][0] === "high" &&
                               "#FE1102") ||
                             (scanFile?.certificate_analysis
-                              .certificate_findings[2][0] === "warning" &&
+                              .certificate_findings[0][0] === "warning" &&
                               "#FAB626") ||
                             (scanFile?.certificate_analysis
-                              .certificate_findings[2][0] === "secure" &&
+                              .certificate_findings[0][0] === "secure" &&
                               "#3DDB84"),
                         }}
                       >
                         {
                           scanFile?.certificate_analysis
-                            .certificate_findings[2][0]
+                            .certificate_findings[0][0]
                         }
                       </div>
                     </StyledTableCell>

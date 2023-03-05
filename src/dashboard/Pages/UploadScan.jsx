@@ -61,6 +61,7 @@ const UploadScan = () => {
       toast.success("Scan successful..");
       setScanFile(res.data);
       setIsLoading(false);
+      
 
       if (uploadedFile.scan_type === "apk") {
         navigate("/dashboard/report-apk");
@@ -75,7 +76,10 @@ const UploadScan = () => {
     }
   };
 
-  console.log(scanFile, 'scanfile')
+  // console.log(scanFile.data.certificate_analysis
+  //   .certificate_findings[0][1]
+  //   , 'sF')
+
   
   return (
     <>
