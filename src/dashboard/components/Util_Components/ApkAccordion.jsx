@@ -65,9 +65,10 @@ export default function ApkAccordion() {
           Certificate Analysis
         </AccordionHeader>
 
-        {scanFile?.certificate_analysis ? (
+        
           <AccordionBody>
-            <TableContainer>
+          {scanFile.certificate_analysis ? (
+             <TableContainer>
               <Table aria-label="customized table">
                 <TableHead>
                   <TableRow>
@@ -82,8 +83,7 @@ export default function ApkAccordion() {
                   <StyledTableRow>
                     <StyledTableCell component="th" scope="row">
                       {
-                        scanFile?.certificate_analysis
-                          .certificate_findings[0][1]
+                        scanFile?.certificate_analysis?.certificate_findings[0][1]
                       }
                     </StyledTableCell>
 
@@ -158,8 +158,7 @@ export default function ApkAccordion() {
                   <StyledTableRow>
                     <StyledTableCell component="th" scope="row">
                       {
-                        scanFile?.certificate_analysis
-                          .certificate_findings[2][1]
+                        scanFile?.certificate_analysis?.certificate_findings[0][2]
                       }
                     </StyledTableCell>
 
@@ -169,22 +168,22 @@ export default function ApkAccordion() {
                         style={{
                           backgroundColor:
                             (scanFile?.certificate_analysis
-                              .certificate_findings[2][0] === "info" &&
+                              .certificate_findings[0][0] === "info" &&
                               "#3DDB84") ||
                             (scanFile?.certificate_analysis
-                              .certificate_findings[2][0] === "high" &&
+                              .certificate_findings[0][0] === "high" &&
                               "#FE1102") ||
                             (scanFile?.certificate_analysis
-                              .certificate_findings[2][0] === "warning" &&
+                              .certificate_findings[0][0] === "warning" &&
                               "#FAB626") ||
                             (scanFile?.certificate_analysis
-                              .certificate_findings[2][0] === "secure" &&
+                              .certificate_findings[0][0] === "secure" &&
                               "#3DDB84"),
                         }}
                       >
                         {
                           scanFile?.certificate_analysis
-                            .certificate_findings[2][0]
+                            .certificate_findings[0][0]
                         }
                       </div>
                     </StyledTableCell>
@@ -196,16 +195,20 @@ export default function ApkAccordion() {
                 </TableBody>
               </Table>
             </TableContainer>
+            ) : (
+              <div>No file result for the scan</div>
+            )}
           </AccordionBody>
-        ) : (
-          <div>No file result for the scan</div>
-        )}
+        
       </Accordion>
+     
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(2)}>
           Manifest Analysis
         </AccordionHeader>
-        {scanFile?.manifest_analysis ? (<AccordionBody>
+        
+        <AccordionBody>
+        {scanFile?.manifest_analysis ? (
           <TableContainer>
             <Table aria-label="customized table">
               <TableHead>
@@ -249,17 +252,22 @@ export default function ApkAccordion() {
               </TableBody>
             </Table>
           </TableContainer>
-        </AccordionBody>) : 
+          ) : (
+        <div>No file result for the scan</div>
+        )}
+        </AccordionBody>
+      </Accordion> 
+          
 
-(<div>No file result for the scan</div>)}
-        
-      </Accordion>
+      
       <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(3)}>
           Binary Analysis
         </AccordionHeader>
-
+        
         <AccordionBody>
+        {scanFile?.binary_analysis ? ( 
+          <>
           <TableContainer>
             <h3 className="font-bold text-lg pl-4">
               {" "}
@@ -309,7 +317,6 @@ export default function ApkAccordion() {
               </TableBody>
             </Table>
           </TableContainer>
-
           <h3 className="font-bold text-lg pl-4">Binary Analysis (NX)</h3>
           <TableContainer>
             <Table aria-label="customized table">
@@ -501,13 +508,22 @@ export default function ApkAccordion() {
               </TableBody>
             </Table>
           </TableContainer>
+          </>
+          ) : (
+            <div>No file result for the scan</div>
+         )}
         </AccordionBody>
+        
+       
       </Accordion>
       <Accordion open={open === 4} icon={<Icon id={4} open={open} />}>
+        
         <AccordionHeader onClick={() => handleOpen(4)}>
           Network Security
         </AccordionHeader>
+        
         <AccordionBody>
+        {scanFile?.network_security ? (
           <TableContainer>
             <Table aria-label="customized table">
               <TableHead>
@@ -551,58 +567,20 @@ export default function ApkAccordion() {
               </TableBody>
             </Table>
           </TableContainer>
+          ) : (
+            <div>No file result for the scan</div>
+          )}
         </AccordionBody>
+        
       </Accordion>
-      <Accordion open={open === 5} icon={<Icon id={5} open={open} />}>
+      {/* <Accordion open={open === 5} icon={<Icon id={5} open={open} />}>
         <AccordionHeader onClick={() => handleOpen(5)}>
           Permission
         </AccordionHeader>
-        <AccordionBody>
-          <TableContainer>
-            <Table aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>DESCRIPTION</StyledTableCell>
-
-                  <StyledTableCell align="center">SEVERITY</StyledTableCell>
-                  {/* <StyledTableCell align="center">STATUS</StyledTableCell> */}
-                  <StyledTableCell align="center">VIEW DETAILS</StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {scanFile.network_security.map((item, key) => {
-                  return (
-                    <StyledTableRow key={key}>
-                      <StyledTableCell component="th" scope="row">
-                        {item.description}
-                      </StyledTableCell>
-
-                      <StyledTableCell align="center">
-                        <button
-                          className="py-2 px-8 rounded-md text-white"
-                          style={{
-                            backgroundColor:
-                              (item?.severity === "info" && "#3DDB84") ||
-                              (item?.severity === "high" && "#FE1102") ||
-                              (item?.severity === "warning" && "#FAB626") ||
-                              (item?.severity === "secure" && "#0096FF"),
-                          }}
-                        >
-                          {item?.severity || "N/A"}
-                        </button>
-                      </StyledTableCell>
-
-                      <StyledTableCell align="center">
-                        <Link to="">View Details</Link>
-                      </StyledTableCell>
-                    </StyledTableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </AccordionBody>
-      </Accordion>
+       <AccordionBody>
+      
+       </AccordionBody>
+      </Accordion> */}
     </div>
   );
 }

@@ -21,6 +21,7 @@ import UploadScan from "dashboard/Pages/UploadScan";
 import IOSReport from "dashboard/Pages/ScanReports/IOSReport";
 import APKReport from "dashboard/Pages/ScanReports/APKReport";
 import ReportPdf from "dashboard/Pages/ReportPdf";
+import PlayStoreModal from './dashboard/components/Modals/PlayStoreModal';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/forget-password" element={<ForgetPassword />} />
             <Route path="/password-reset" element={<PasswordReset />} />
+            <Route path="/play-store" element={<PlayStoreModal />} />
 
 
             <Route path="/dashboard" element={<DashboardPage />}>

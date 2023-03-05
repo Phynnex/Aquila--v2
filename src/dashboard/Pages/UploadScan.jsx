@@ -61,6 +61,7 @@ const UploadScan = () => {
       toast.success("Scan successful..");
       setScanFile(res.data);
       setIsLoading(false);
+      
 
       if (uploadedFile.scan_type === "apk") {
         navigate("/dashboard/report-apk");
@@ -75,7 +76,10 @@ const UploadScan = () => {
     }
   };
 
-  console.log(scanFile, 'scanfile')
+  // console.log(scanFile.data.certificate_analysis
+  //   .certificate_findings[0][1]
+  //   , 'sF')
+
   
   return (
     <>
@@ -112,7 +116,7 @@ const UploadScan = () => {
           </div>
         )}
         {uploadedFile && (
-          <div className="flex flex-col items-center text-right  pt-9">
+          <div className="text-center">
             <p>Project : {uploadedFile?.project}</p>
             <p>File Name : {uploadedFile?.file_name}</p>
             <p>Hash : {uploadedFile?.hash}</p>
