@@ -1,63 +1,69 @@
-import React from "react";
+import React,{useState} from "react";
 import { BsCloudUpload } from "react-icons/bs";
 import { useStateContext } from "Context/ContextProvider";
 import { useNavigate } from "react-router-dom";
 import axios from "./../../../../Api/axios";
-import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const UploadApk = () => {
-  const { projectName: project_name, setReports, reports } = useStateContext();
+  const [isLoading, setIsLoading] = useState(false)
+  const {
+    projectName: project_name,
+    reports,
+  } = useStateContext();
 
   const navigate = useNavigate();
 
-  
   const handleDownloadReport = async () => {
-
+    setIsLoading(true)
     try {
-      const data = await axios.get("api/pdf/", {
+      const response = await axios.get("api/pdf/", {
         params: {
           project_name,
-          id : reports.data.data.apk[0].id,
+          id: reports.data.data.apk[0].id,
           ipa: false,
           apk: true,
         },
-        
-      });
-      toast.success("Report Downloaded successfully");
 
-      console.log(data, 'emailPdf')
+        responseType: "blob",
+      });
+      const blob = new Blob([response.data], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Aquila-scan-report.pdf";
+      link.click();
+      // document.removeChild(link);
+      setIsLoading(false)
+      toast.success("Download pdf successful")
     } catch (error) {
-      console.log(error);
-      toast.error("Unable to Download Report");
+      setIsLoading(false)
+      toast.error("Unable to download")
+      console.error(error);
     }
-    
   };
 
-  const handleSendEmail = async () => {
+  
 
+  const handleSendEmail = async () => {
     try {
       const data = await axios.get("api/email-pdf/", {
         params: {
           project_name,
-          id : reports.data.data.apk[0].id,
+          id: reports.data.data.apk[0].id,
           ipa: false,
           apk: true,
         },
-        
       });
       toast.success("Email sent successfully..");
 
-      console.log(data, 'emailPdf')
+      console.log(data.data, "emailPdf");
     } catch (error) {
       console.log(error);
       toast.error("Unable to Send Email");
     }
-    
   };
-  
-  
 
   // console.log(reports, 'report')
   // console.log(reports.data.data.data.apk, 'new')
@@ -84,8 +90,15 @@ const UploadApk = () => {
               View Full Report
             </button>
 
-            <button onClick={handleDownloadReport} className="bg-secondary p-2 text-white rounded-md pt-4 mt-6 hover:text-secondary hover:bg-white hover:border-2 hover:border-secondary ">
-              Download Report
+            <button
+              onClick={handleDownloadReport}
+              className="bg-secondary p-2 text-white rounded-md pt-4 mt-6 hover:text-secondary hover:bg-white hover:border-2 hover:border-secondary "
+            >
+             {isLoading ? (
+                    <i className="fa-solid fa-spinner fa-spin-pulse"></i>
+                  ) : (
+                    "Download Report"
+                  )}
             </button>
 
             <button
