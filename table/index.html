@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Aquila Report</title>
+</head>
+
+<body>
+    <div class="report-page">
+        <div class="aquila-content">
+            <div class="aquila-info">
+                <img src="./Logo.png" alt="aquil-logo" />
+                <p>
+                    Aquila is an Intelligent and comprehensive end-to-end app security Solution. <br /> Developers can Scan, Monitor and protect their Mobile applications within Minutes.
+                </p>
+            </div>
+            <div class="aquila-website">
+                <p>www.aquila.com.ng</p>
+            </div>
+        </div>
+        <div class="report-info">
+            <p class="scan-date">Scan Date: 12/3/2023</p>
+            <h1>Vulnerability Assessment_v1.1_apkpure.com.apk</h1>
+            <div class="report-info-details">
+                <p>Platform : Andriod</p>
+                <p>Version : 2.0</p>
+                <p>Size : 4mb</p>
+            </div>
+        </div>
+        <div class="report-score">
+            <h3>Vulnerabilitie Scores</h3>
+            <div class="score-card">
+                <div class="score-card-high">
+                    <div class="score-card-info">
+                        <div class="xxv">
+                            <h3 class="xx">High-Severity Vulnerabilities</h3>
+                            <p class="xxx" style="color: red; font-size: 2rem; font-weight: bold; margin-top: -7px;">3</p>
+                        </div>
+                        <div class="score-p">
+                            <p>This can lead to User data being leaked and to a serious Violation of the useris Privacy</p>
+                        </div>
+                    </div>
+                    <h1 style="padding-bottom: 5px; ">20%</h1>
+                    <div class="progress-outer">
+                        <div class="progress-inner-high"></div>
+                    </div>
+                </div>
+                <div class="score-card-medium">
+                    <div class="score-card-info">
+                        <div class="xxv">
+                            <h3 class="xx">Medium-Severity Vulnerabilities</h3>
+                            <p class="xxx" style="color: orange; font-size: 2rem; font-weight: bold; margin-top: -7px;">7</p>
+                        </div>
+                        <div class="score-p">
+                            <p>May affect app's level of protection and reduce the level of security</p>
+                        </div>
+                    </div>
+                    <h1 style="padding-bottom: 5px; ">35%</h1>
+                    <div class="progress-outer">
+                        <div class="progress-inner-medium"></div>
+                    </div>
+                </div>
+                <div class="score-card-low">
+                    <div class="score-card-info">
+                        <div class="xxv">
+                            <h3 class="xx">Low-Severity Vulnerabilities</h3>
+                            <p class="xxx" style="color: green; font-size: 2rem; font-weight: bold; margin-top: -7px;">12</p>
+                        </div>
+                        <div class="score-p">
+                            <p>Lead to User data being leaked and to a serious Violation of the useris Privacy</p>
+                        </div>
+                    </div>
+                    <h1 style="padding-bottom: 5px; ">70%</h1>
+                    <div class="progress-outer">
+                        <div class="progress-inner-low"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="list">
+                <h3>List of Vulnerabilities</h3>
+            </div>
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Categories</th>
+                        <th>Severity</th>
+                        <th>Analysis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ip Address Disclosure</td>
+                        <td style="display: flex; align-items: center">
+                            <div class="high"></div>
+                            &nbsp;High
+                        </td>
+                        <td>Network</td>
+                    </tr>
+                    <tr>
+                        <td>Use of insecure HP protocol</td>
+                        <td style="display: flex; align-items: center">
+                            <div class="high"></div>
+                            &nbsp;High
+                        </td>
+                        <td>Network</td>
+                    </tr>
+                    <tr>
+                        <td>Enable Javascript</td>
+                        <td style="display: flex; align-items: center">
+                            <div class="high"></div>
+                            &nbsp;High
+                        </td>
+                        <td>Binary</td>
+                    </tr>
+                    <tr>
+                        <td>Content access is enabled for web view</td>
+                        <td style="display: flex; align-items: center">
+                            <div class="medium"></div>
+                            &nbsp;Medium
+                        </td>
+                        <td>Binary</td>
+                    </tr>
+                    <tr>
+                        <td>Application backup is allowed</td>
+                        <td style="display: flex; align-items: center">
+                            <div class="medium"></div>
+                            &nbsp;Medium
+                        </td>
+                        <td>Binary</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            App can red/write to external Storage. any app can read data written to External Storage.
+                        </td>
+                        <td style="display: flex; align-items: center">
+                            <div class="medium"></div>
+                            &nbsp;Medium
+                        </td>
+                        <td>Bianry</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            The app logs information. Sensitive information should never be logged in the console or what so ever.
+                        </td>
+                        <td style="display: flex; align-items: center">
+                            <div class="medium"></div>
+                            &nbsp;Medium
+                        </td>
+                        <td>Manifest</td>
+                    </tr>
+                    <tr>
+                        <td>Certificate pinning does not have an expiry date</td>
+                        <td style="display: flex; align-items: center">
+                            <div class="low"></div>
+                            &nbsp;Low
+                        </td>
+                        <td>Manifest</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Domain config is securely configured to disallow clear text traffic to these domain in scope.
+                        </td>
+                        <td style="display: flex; align-items: center">
+                            <div class="low"></div>
+                            &nbsp;Low
+                        </td>
+                        <td>Manifest</td>
+                    </tr>
+                    <tr>
+                        <td>Found 18 critical permission(s)</td>
+                        <td style="display: flex; align-items: center">
+                            <div class="low"></div>
+                            &nbsp;Low
+                        </td>
+                        <td>Manifest</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

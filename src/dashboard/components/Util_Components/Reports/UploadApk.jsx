@@ -105,7 +105,7 @@ const UploadApk = () => {
               onClick={handleSendEmail}
               className="bg-secondary p-2 text-white rounded-md pt-4 mt-6 hover:text-secondary hover:bg-white hover:border-2 hover:border-secondary "
             >
-              Send Report to Email
+              Send to Email
             </button>
           </div>
         </div>

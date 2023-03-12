@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.report-page {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.aquila-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.aquila-info img {
+    width: 25rem;
+    height: auto;
+    margin: -13rem 0 0 -6rem;
+}
+
+.aquila-info p {
+    margin-top: -15rem
+}
+
+.report-score h3 {
+    margin-bottom: 5px;
+}
+
+.report-info-details {
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.report-info h1 {
+    margin-bottom: 10px;
+}
+
+.scan-date {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.score-card {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.score-card-high {
+    float: left;
+    border: 1px solid red;
+    margin: 0px 5px;
+    width: 30%;
+    padding: 20px 10px;
+}
+
+.score-card-medium {
+    float: left;
+    border: 1px solid orange;
+    margin: 0px 5px;
+    width: 30%;
+    padding: 20px 10px;
+}
+
+.score-card-low {
+    float: left;
+    border: 1px solid green;
+    margin: 0px 5px;
+    width: 30%;
+    padding: 20px 10px;
+}
+
+.xx {
+    float: left;
+    text-align: center;
+}
+
+.xxx {
+    float: right;
+}
+
+.xxv {
+    margin: auto;
+}
+
+.score-p {
+    display: inline-block;
+    padding: 15px 0;
+}
+
+.progress-outer {
+    width: 100%;
+    background-color: rgb(234, 240, 247);
+    height: 0.625rem;
+}
+
+.progress-inner-high {
+    background-color: red;
+    height: 0.625rem;
+    width: 20%
+}
+
+.progress-inner-medium {
+    background-color: orange;
+    height: 0.625rem;
+    width: 35%
+}
+
+.progress-inner-low {
+    background-color: green;
+    height: 0.625rem;
+    width: 55%;
+}
+
+.high {
+    background-color: red;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%
+}
+
+.medium {
+    background-color: orange;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%
+}
+
+.low {
+    background-color: rgb(12, 236, 49);
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%
+}
+
+.progress-outer {
+    width: 100%;
+    background-color: rgb(234, 240, 247);
+    height: 0.625rem;
+}
+
+.content-table {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.content-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.score-card-high {
+    float: left;
+    border: 1px solid red;
+    margin: 0px 5px;
+    width: 30%;
+    padding: 20px 10px;
+}
+
+.score-card-medium {
+    float: left;
+    border: 1px solid orange;
+    margin: 0px 5px;
+    width: 30%;
+    padding: 20px 10px;
+}
+
+.score-card-low {
+    float: left;
+    border: 1px solid green;
+    margin: 0px 5px;
+    width: 30%;
+    padding: 20px 10px;
+}
+
+.xx {
+    float: left;
+    text-align: center;
+}
+
+.xxx {
+    float: right;
+}
+
+.xxv {
+    margin: auto;
+}
+
+.score-p {
+    display: inline-block;
+    padding: 15px 0;
+}
+
+.progress-outer {
+    width: 100%;
+    background-color: rgb(234, 240, 247);
+    height: 0.625rem;
+}
+
+.progress-inner-high {
+    background-color: red;
+    height: 0.625rem;
+    width: 20%
+}
+
+.progress-inner-medium {
+    background-color: orange;
+    height: 0.625rem;
+    width: 35%
+}
+
+.progress-inner-low {
+    background-color: green;
+    height: 0.625rem;
+    width: 55%;
+}
+
+.high {
+    background-color: red;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%
+}
+
+.medium {
+    background-color: orange;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%
+}
+
+.low {
+    background-color: rgb(12, 236, 49);
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%
+}
+
+#list {
+    color: #009879;
+    margin-top: 13rem;
+}
