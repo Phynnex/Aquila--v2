@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.report-page {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.aquila-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.aquila-info img {
+    width: 25rem;
+    height: auto;
+    margin: -13rem 0 0 -6rem;
+}
+
+.aquila-info p {
+    margin-top: -15rem
+}
+
+.report-score h3 {
+    margin-bottom: 5px;
+}
+
+.report-info-details {
+    display: flex;
+    gap: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.report-info h1 {
+    margin-bottom: 10px;
+}
+
+.scan-date {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.score-card {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.score-card-high {
+    float: left;
+    border: 1px solid red;
+    margin: 0px 5px;
+    width: 30%;
+    padding: 20px 10px;
+}
+
+.score-card-medium {
+    float: left;
+    border: 1px solid orange;
+    margin: 0px 5px;
+    width: 30%;
+    padding: 20px 10px;
+}
+
+.score-card-low {
+    float: left;
+    border: 1px solid green;
+    margin: 0px 5px;
+    width: 30%;
+    padding: 20px 10px;
+}
+
+.xx {
+    float: left;
+    text-align: center;
+}
+
+.xxx {
+    float: right;
+}
+
+.xxv {
+    margin: auto;
+}
+
+.score-p {
+    display: inline-block;
+    padding: 15px 0;
+}
+
+.progress-outer {
+    width: 100%;
+    background-color: rgb(234, 240, 247);
+    height: 0.625rem;
+}
+
+.chart-container {
+    width: 100%;
+    margin-top: 100px;
+
+}
+
+.chart-header {
+    margin-top: 15rem;
+    text-align: center;
+}
+
+/* pie-chart-1 styles */
+
+.chart-1 {
+    width: 50%;
+    float: left;
+    
+}
+
+.pie-chart-1 {
+	background:
+		radial-gradient(
+			circle closest-side,
+			transparent 66%,
+			white 0
+		),
+		conic-gradient(
+      
+			#4e79a7 0,
+			#4e79a7 30%,
+     #76b7b2 0,
+			#76b7b2 60%,
+     #ff9da7 0,
+			#ff9da7 90%,
+			#f28e2c 0,
+			#f28e2c 100%
+			
+	);
+	position: relative;
+	width: 500px;
+	min-height: 350px;
+	margin: 0;
+	/* outline: 1px solid #ccc; */
+}
+.pie-chart-1 h2 {
+	position: absolute;
+	margin: 1rem;
+}
+.pie-chart-1 cite {
+	position: absolute;
+	bottom: 0;
+	font-size: 80%;
+	padding: 1rem;
+	color: gray;
+}
+.pie-chart-1 figcaption {
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+	font-size: smaller;
+	text-align: right;
+}
+.pie-chart-1 span:after {
+	display: inline-block;
+	content: "";
+	width: 0.8em;
+	height: 0.8em;
+	margin-left: 0.4em;
+	height: 0.8em;
+	border-radius: 0.2em;
+	background: currentColor;
+}
+
+/* pie-chart-2 styles */
+
+.chart-2 {
+    width: 45%;
+    float: left;
+}
+
+.pie-chart-2 {
+	background:
+		radial-gradient(
+			circle closest-side,
+			white 0,
+			white 52.8%,
+			transparent 52.8%,
+			transparent 66%,
+			white 0
+		),
+		conic-gradient(
+      
+			#4e79a7 0,
+			#4e79a7 70%,
+
+   
+			#eee 0,
+			#eee 100%
+	);
+	position: relative;
+	width: 500px;
+	min-height: 350px;
+	margin: 0;
+	/* outline: 1px solid #ccc; */
+}
+.pie-chart-2 h2 {
+	position: absolute;
+	margin: 1rem;
+}
+.pie-chart-2 h3 {
+	position: absolute;
+	bottom: 0;
+    right: 1em;
+	color: gray;
+}
+.pie-chart-2 figcaption {
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+	font-size: smaller;
+	text-align: right;
+}
+.pie-chart-2 span:after {
+	display: inline-block;
+	content: "";
+	width: 0.8em;
+	height: 0.8em;
+	margin-left: 0.4em;
+	height: 0.8em;
+	border-radius: 0.2em;
+	background: currentColor;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.progress-inner-high {
+    background-color: red;
+    height: 0.625rem;
+    width: 20%
+}
+
+.progress-inner-medium {
+    background-color: orange;
+    height: 0.625rem;
+    width: 35%
+}
+
+.progress-inner-low {
+    background-color: green;
+    height: 0.625rem;
+    width: 55%;
+}
+
+

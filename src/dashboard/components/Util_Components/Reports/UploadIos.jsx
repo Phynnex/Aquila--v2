@@ -22,10 +22,10 @@ const UploadIos = () => {
       )}
       {reports?.data?.data?.ios?.length  >0 && (
         <div className="p-5 m-5">
-          <p>File Name :{reports?.data?.data?.ios?.FILE_NAME} </p>
-          <p>Size : {reports?.data?.data?.ios?.SIZE}</p>
-          <p>Sha5 : {reports?.data?.data?.ios?.MD5}</p>
-          <p>App Name : {reports?.data?.data?.ios?.APP_NAME}</p>
+          <p>File Name :{reports?.data?.data?.ios[0]?.FILE_NAME} </p>
+          <p>Size : {reports?.data?.data?.ios[0]?.SIZE}</p>
+          <p>Sha5 : {reports?.data?.data?.ios[0]?.MD5}</p>
+          <p>App Name : {reports?.data?.data?.ios[0]?.APP_NAME}</p>
         
           <button className="bg-secondary p-2 text-white rounded-md pt-4 mt-6 hover:text-secondary hover:bg-white hover:border-2 hover:border-secondary ">View Full Report</button>
           

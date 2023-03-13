@@ -127,7 +127,7 @@ const UploadScan = () => {
         {!uploadedFile && (
           <div className="flex gap-4 justify-center items-center pt-9">
             <button onClick={() => setFile("")}>Cancel</button>
-            <button>Upload</button>
+            <button disabled={!file || isLoading}>{uploadedFile ? "Scan" : "Upload"}</button>
           </div>
         )}
       </form>
