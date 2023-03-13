@@ -1,68 +1,13 @@
-import React,{useState} from "react";
 import { useStateContext } from "Context/ContextProvider";
 import ApkAccordion from "./../../components/Util_Components/ApkAccordion";
 import PlayStoreModal from "./../../components/Modals/PlayStoreModal";
-import axios from "../../../Api/axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const APKReport = () => {
   const { scanFile, openModal, setOpenModal } = useStateContext();
-  const [isLoading, setIsLoading] = useState(false)
-  const {
-    projectName: project_name,
-    reports,
-  } = useStateContext();
- 
 
-  const handleDownloadReport = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios.get("api/pdf/", {
-        params: {
-          project_name,
-          id: reports.data.data.apk[0].id,
-          ipa: false,
-          apk: true,
-        },
-
-        responseType: "blob",
-      });
-      const blob = new Blob([response.data], { type: "application/pdf" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "Aquila-scan-report.pdf";
-      link.click();
-      // document.removeChild(link);
-      setIsLoading(false)
-      toast.success("Download pdf successful")
-    } catch (error) {
-      setIsLoading(false)
-      toast.error("Unable to download")
-      console.error(error);
-    }
-  };
-
-  const handleSendEmail = async () => {
-    try {
-      const data = await axios.get("api/email-pdf/", {
-        params: {
-          project_name,
-          id: reports.data.data.apk[0].id,
-          ipa: false,
-          apk: true,
-        },
-      });
-      toast.success("Email sent successfully..");
-
-      console.log(data.data, "emailPdf");
-    } catch (error) {
-      console.log(error);
-      toast.error("Unable to Send Email");
-    }
-  };
-
+  const handleSendEmail = () => {
+    console.log('sendToEmail')
+  }
 
   return (
     <>
@@ -74,19 +19,11 @@ const APKReport = () => {
           Vulnerability Scan Report:
         </p>
         <div className="w-1/3 flex justify-between items-center mr-14">
-          <button  onClick={handleDownloadReport} className="py-2 px-4 bg-secondary text-white rounded-md hover:bg-white hover:text-secondary hover:border-2 hover:font-semibold">
-          {isLoading ? (
-                    <i className="fa-solid fa-spinner fa-spin-pulse"></i>
-                  ) : (
-                    "Download Report"
-                  )}
+          <button className="py-2 px-4 bg-secondary text-white rounded-md hover:bg-white hover:text-secondary hover:border-2 hover:font-semibold">
+            Download report
           </button>
           <button onClick={handleSendEmail} className="py-2 px-4 bg-secondary text-white rounded-md hover:bg-white hover:text-secondary hover:border-2 hover:font-semibold">
-          {isLoading ? (
-                    <i className="fa-solid fa-spinner fa-spin-pulse"></i>
-                  ) : (
-                    "Send Report To Mail"
-                  )}
+            Send report to mail
           </button>
         </div>
       </div>
